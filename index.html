@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	 <script src="jQury.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		.table td, .table th {
+    padding: 0.4vmax;
+    vertical-align: top;
+    border-top: 3px solid #dee2e6;
+    }
+
+   
+
+    table{
+    	border: 3px solid brown;
+    	padding: 2px;
+    	position: relative;
+    	top: 100px;
+    	background-color: ;
+
+    }
+
+    .btn{
+    	font-weight: 1000;
+    }
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 text-center mx-auto">
+			<table class="table">
+				
+				<tr>
+				   <td colspan="4"><input class="form-control" id="input"></td>
+				</tr>
+				<tr>
+					<td colspan="2" onclick="om(Del)"><button class="btn btn-primary form-control">Del</button></td>
+		            <td colspan="2" onclick="clrall()"><button class="btn btn-primary form-control">C</button></td>
+			    </tr>
+				<tr>
+					<td onclick=insrt(7)><button class="btn btn-primary form-control">7</button></td>
+					<td onclick=insrt(8)><button class="btn btn-primary form-control">8</button></td>
+					<td onclick=insrt(9)> <button class="btn btn-primary form-control">9</button></td>
+					<td onclick="insrt('/')"><button class="btn btn-primary form-control">/</button> </td>
+				</tr>
+
+				<tr>
+					<td onclick=insrt(4)><button class="btn btn-primary form-control">4</button></td>
+					<td onclick=insrt(5)><button class="btn btn-primary form-control">5</button></td>
+					<td onclick=insrt(6)> <button class="btn btn-primary form-control">6</button></td>
+					<td onclick="insrt('*')"><button class="btn btn-primary form-control">*</button> </td>
+				</tr>
+
+				<tr>
+					<td onclick=insrt(1)><button class="btn btn-primary form-control">1</button></td>
+					<td onclick=insrt(2)><button class="btn btn-primary form-control">2</button></td>
+					<td onclick=insrt(3)> <button class="btn btn-primary form-control">3</button></td>
+					<td onclick="insrt('-')"><button class="btn btn-primary form-control">-</button> </td>
+				</tr>
+
+				<tr>
+					<td onclick=insrt(0)><button class="btn btn-primary form-control">0</button></td>
+					<td onclick="insrt('.')"><button class="btn btn-primary form-control">.</button></td>
+					<td onclick="eql(
+					)"> <button class="btn btn-primary form-control">=</button></td>
+					<td onclick="insrt('+')">
+ 					<button class="btn btn-primary form-control">+</button> </td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+</div>
+<script >
+	$(document).ready(function(){
+
+		$("body").keyup(function(e){
+			if(e.keyCode == 13)
+			{
+				eql();
+			}
+
+			else if(e.keyCode == 109)
+			{
+				insrt('-');
+			}
+		})
+
+	})
+function insrt(num)
+{
+	$("#input").val( $("#input").val()+num );
+}
+
+function clrall()
+{
+	$("#input").val(" ");
+}
+
+function eql()
+{
+	let x = eval($("#input").val())
+
+	$("#input").val(x);
+}
+
+function om()
+{
+	let value = $("#input").val();
+   
+
+	$("#input").val(value.substring(0,value.length-1));
+}
+</script>
+</body>
+</html>
